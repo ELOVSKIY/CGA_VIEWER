@@ -21,7 +21,7 @@ class Viewer(private val obj: Obj) {
 
     private val target = Vector(0F, 0F, 0F)
     private var up = Vector(0F, 1F, 0F)
-    private var eye = Vector(0F, 4F, -20F)
+    private var eye = Vector(0F, 0F, -20F)
 
     fun render(renderer: Renderer) {
         val model = obj.clone()
