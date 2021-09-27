@@ -50,7 +50,7 @@ class Matrix {
                 floatArrayOf(
                     1 / (aspectRatio * tanHalfFoV), 0F, 0F, 0F,
                     0F, 1 / tanHalfFoV, 0F, 0F,
-                    0F, 0F, zFar / (zFar - zNear), zNear * zFar / (zNear - zFar),
+                    0F, 0F, zFar / (zNear - zFar), zNear * zFar / (zNear - zFar),
                     0F, 0F, -1F, 0F
                 )
             ).apply {

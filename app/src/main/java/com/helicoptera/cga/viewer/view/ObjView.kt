@@ -33,10 +33,12 @@ class ObjView @JvmOverloads constructor(
         ScaleGestureDetector(context, object : ScaleGestureDetector.SimpleOnScaleGestureListener() {
             override fun onScale(detector: ScaleGestureDetector?): Boolean {
                 detector?.let { detector ->
-                    val scale = detector.scaleFactor.coerceIn(0.01f, 25F)
+                    val scale = detector.scaleFactor.coerceIn(0.2F, 5F)
+
+                    val scaleDiff = if (scale > 1) 0.1F else -0.1f
 
                     viewer?.let { viewer ->
-                        viewer.s = scale
+                        viewer.s += scaleDiff
                         Log.d("HELICOPTRA-SCALE", "Scale: $scale")
                         Log.d("HELICOPTRA-SCALE", "s: ${viewer.s}")
                         invalidate()
