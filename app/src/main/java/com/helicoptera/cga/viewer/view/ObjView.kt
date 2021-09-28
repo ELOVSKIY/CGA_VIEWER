@@ -20,7 +20,7 @@ class ObjView @JvmOverloads constructor(
 
     private val renderer = Renderer()
     var viewer: Viewer? = null
-        set(value)  {
+        set(value) {
             field = value
             invalidate()
         }
@@ -42,10 +42,8 @@ class ObjView @JvmOverloads constructor(
                         invalidate()
                     }
                 }
-                return super.onScale(detector)
+                return true
             }
-
-
         }
         )
 

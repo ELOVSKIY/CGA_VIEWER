@@ -11,7 +11,7 @@ class Viewer(private val obj: Obj) {
     var width = 500F
     var height = 500f
 
-    var s = 30.1998062F
+    var s = 30F
     var rx = 0F
     var ry = 0F
     var rz = 0F
