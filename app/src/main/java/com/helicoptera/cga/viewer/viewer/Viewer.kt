@@ -27,13 +27,13 @@ class Viewer(private val obj: Obj) {
         val model = obj.clone()
         model.apply {
 
-            val world = Matrix.world(s, rx, ry, rz, tx, ty, tz);
+            val world = Matrix.world(s, rx, ry, rz, tx, ty, tz)
 
-            val viewer = Matrix.viewer(eye, target, up);
+            val viewer = Matrix.viewer(eye, target, up)
 
-            val projection = Matrix.projection(FOV_IN_RADIANS, width / height, Z_NEAR, Z_FAR);
+            val projection = Matrix.projection(FOV_IN_RADIANS, width / height, Z_NEAR, Z_FAR)
 
-            val viewport = Matrix.viewport(width, height, X_MIN, Y_MIN);
+            val viewport = Matrix.viewport(width, height, X_MIN, Y_MIN)
 
             val transformation = world * viewer * projection
 
