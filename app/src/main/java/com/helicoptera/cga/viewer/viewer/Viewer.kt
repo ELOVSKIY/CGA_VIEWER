@@ -8,10 +8,10 @@ import kotlin.math.PI
 
 class Viewer(private val obj: Obj) {
 
-    var width = 775f
-    var height = 409f
+    var width = 500F
+    var height = 500f
 
-    var s = 5F
+    var s = 30.1998062F
     var rx = 0F
     var ry = 0F
     var rz = 0F
@@ -21,7 +21,7 @@ class Viewer(private val obj: Obj) {
 
     private val target = Vector(0F, 0F, 0F)
     private var up = Vector(0F, 1F, 0F)
-    private var eye = Vector(0F, 0F, -20F)
+    private var eye = Vector(0F, 0F, -1000F)
 
     fun render(renderer: Renderer) {
         val model = obj.clone()
@@ -60,8 +60,8 @@ class Viewer(private val obj: Obj) {
     }
 
     companion object {
-        private const val Z_NEAR = 50F
-        private const val Z_FAR = 100F
+        private const val Z_NEAR = 50000F
+        private const val Z_FAR = 100000F
         private const val X_MIN = 0F
         private const val Y_MIN = 0F
         private const val FOV_IN_RADIANS = (PI / 4).toFloat()

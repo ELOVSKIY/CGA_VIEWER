@@ -35,12 +35,10 @@ class ObjView @JvmOverloads constructor(
                 detector?.let { detector ->
                     val scale = detector.scaleFactor.coerceIn(0.2F, 5F)
 
-                    val scaleDiff = if (scale > 1) 0.1F else -0.1f
+                    val scaleDiff = if (scale > 1) SCALE_RATIO else -SCALE_RATIO
 
                     viewer?.let { viewer ->
                         viewer.s += scaleDiff
-                        Log.d("HELICOPTRA-SCALE", "Scale: $scale")
-                        Log.d("HELICOPTRA-SCALE", "s: ${viewer.s}")
                         invalidate()
                     }
                 }
@@ -86,15 +84,8 @@ class ObjView @JvmOverloads constructor(
                             val dY = motionEvent.y - lastTouchY
 
                             viewer?.let { viewer ->
-                                Log.d("HELICOPTRA-TRANSLATION", "BEFORE X: ${viewer.tx}")
-                                Log.d("HELICOPTRA-TRANSLATION", "dX: $dX")
                                 viewer.tx += dX * ROTATION_RATIO
-                                Log.d("HELICOPTRA-TRANSLATION", "AFTER X: ${viewer.tx}")
-
-                                Log.d("HELICOPTRA-TRANSLATION", "BEFORE Y: ${viewer.ty}")
-                                Log.d("HELICOPTRA-TRANSLATION", "dY: $dY")
                                 viewer.ty += dY * ROTATION_RATIO
-                                Log.d("HELICOPTRA-TRANSLATION", "AFTER Y: ${viewer.ty}")
 
                                 invalidate()
                             }
@@ -112,6 +103,7 @@ class ObjView @JvmOverloads constructor(
     }
 
     companion object {
+        private const val SCALE_RATIO = 1F
         private const val ROTATION_RATIO = 0.1F
     }
 }
